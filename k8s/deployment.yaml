@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: tm-calc
-          image: gteshome/tm-calc:0.0.2
+          image: gteshome/tm-calc:0.0.3
           ports:
             - containerPort: 3000
           imagePullPolicy: Always
