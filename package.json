@@ -1,0 +1,21 @@
+{
+  "name": "tm-calc",
+  "version": "0.0.3",
+  "description": "A simple Node.js/ExpressJS based calculator app with Prometheus metrics.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gteshome/tm-calc.git"
+  },
+  "main": "app.js",
+  "scripts": {
+    "test": "npx jasmine spec/calcSpec.js"
+  },
+  "author": "Gash Teshome <gashaw.teshome@gmail.com>",
+  "license": "GPL-2.0",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-prom-bundle": "^6.1.0",
+    "jasmine": "^3.6.1",
+    "prom-client": "^12.0.0"
+  }
+}

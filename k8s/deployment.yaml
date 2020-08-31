@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tm-calc-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tm-calc
+  template:
+    metadata:
+      labels:
+        app: tm-calc
+    spec:
+      containers:
+        - name: tm-calc
+          image: gteshome/tm-calc:0.0.2
+          ports:
+            - containerPort: 3000
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /liveness
+              port: 3000
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /readiness
+              port: 3000
+            initialDelaySeconds: 3
+            periodSeconds: 3
+            successThreshold: 1
+            failureThreshold: 3

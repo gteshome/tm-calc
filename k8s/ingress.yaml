@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: tm-calc-ingress
+    annotations:
+       kubernetes.io/ingress.class: "nginx"
+spec:
+    rules:
+    - host: tm-calc.dev.ticketmaster.net
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: tm-calc-service
+            servicePort: 80
